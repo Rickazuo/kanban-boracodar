@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { Poppins } from "next/font/google";
+import { Inter, Poppins } from "next/font/google";
 import styles from "../styles/Home.module.css";
 import Image from "next/image";
 
@@ -8,12 +8,15 @@ import boardIcon from "../../public/boardIcon.svg";
 import teamIcon from "../../public/teamIcon.svg";
 import reportIcon from "../../public/reportIcon.svg";
 import adjustIcon from "../../public/adjustIcon.svg";
-import penIcon from "../../public/penIcon.svg"
+import penIcon from "../../public/penIcon.svg";
+import buttonSearch from "../../public/buttonSearch.svg"
 
-const font = Poppins({ subsets: ["latin"], weight: ["900"] });
+const font = Inter({ subsets: ["latin"], weight: ["500", "700"] });
 
 export default function Home() {
   return (
+    <>
+    <div className={styles.stripHeader}></div>
     <div className={styles.container}>
       <Head>
         <title>Create Next App</title>
@@ -23,95 +26,103 @@ export default function Home() {
       </Head>
       <div className={styles.aside}>
         <Image className={styles.logo} src={logo} width={50} height={56} />
-        <nav>
-          <div className={styles.navigation}>
+        <div className={styles.navigation}>
+          <div className={styles.nav}>
             <Image
               src={boardIcon}
               alt="smartphone icon"
               width={20}
               height={20}
             />
-            <span>Boards</span>
+            <span className={font.className}>Boards</span>
           </div>
-          <div>
+          <div className={styles.nav}>
             <Image src={teamIcon} alt="team icon" width={20} height={20} />
-            <span>Equipes</span>
+            <span className={font.className}>Equipes</span>
           </div>
-          <div>
+          <div className={styles.nav}>
             <Image src={reportIcon} alt="paper icon" width={20} height={20} />
-            <span>Relatórios</span>
+            <span className={font.className}>Relatórios</span>
           </div>
-          <div>
+          <div className={styles.nav}>
             <Image src={adjustIcon} alt="gear icon" width={20} height={20} />
-            <span>Ajustes</span>
+            <span className={font.className}>Ajustes</span>
           </div>
-        </nav>
+        </div>
       </div>
       <div className={styles.main}>
         <div className={styles.headMain}>
           <h1>Meu Kanban</h1>
-          <Image
-          src={penIcon}
-          alt="pen icon" />
+          <Image src={penIcon} width={40} height={40} alt="pen icon" />
+        </div>
+        <div className={styles.search}>
+          <button className={styles.buttonSearch}>
+            <Image
+            src={buttonSearch}
+            />
+          </button>
+          <label id="search"></label>
+          <input className={styles.inputSearch} id="search"></input>
         </div>
         <div className={styles.cards}>
-        <div className={styles.toDo}>
-          <h4>A fazer</h4>
-          <div className={styles.card}>
-            <h6>title</h6>
-            <p>text</p>
-            <div className={styles.tags}>tags</div>
+          <div className={styles.toDo}>
+            <h4>A fazer</h4>
+            <div className={styles.card}>
+              <h6>title</h6>
+              <p>text</p>
+              <div className={styles.tags}>tags</div>
+            </div>
+            <div className={styles.card}>
+              <h6>title</h6>
+              <p>text</p>
+              <div className={styles.tags}>tags</div>
+            </div>
+            <div className={styles.card}>
+              <h6>title</h6>
+              <p>text</p>
+              <div className={styles.tags}>tags</div>
+            </div>
           </div>
-          <div className={styles.card}>
-            <h6>title</h6>
-            <p>text</p>
-            <div className={styles.tags}>tags</div>
+          <div></div>
+          <div className={styles.doing}>
+            <h4>Fazendo</h4>
+            <div className={styles.card}>
+              <h6>title</h6>
+              <p>text</p>
+              <div className={styles.tags}>tags</div>
+            </div>
+            <div className={styles.card}>
+              <h6>title</h6>
+              <p>text</p>
+              <div className={styles.tags}>tags</div>
+            </div>
+            <div className={styles.card}>
+              <h6>title</h6>
+              <p>text</p>
+              <div className={styles.tags}>tags</div>
+            </div>
           </div>
-          <div className={styles.card}>
-            <h6>title</h6>
-            <p>text</p>
-            <div className={styles.tags}>tags</div>
+          <div className={styles.finish}>
+            <h4>Feito</h4>
+            <div className={styles.card}>
+              <h6>title</h6>
+              <p>text</p>
+              <div className={styles.tags}>tags</div>
+            </div>
+            <div className={styles.card}>
+              <h6>title</h6>
+              <p>text</p>
+              <div className={styles.tags}>tags</div>
+            </div>
+            <div className={styles.card}>
+              <h6>title</h6>
+              <p>text</p>
+              <div className={styles.tags}>tags</div>
+            </div>
           </div>
-        </div>
-        <div></div>
-        <div className={styles.doing}>
-          <h4>Fazendo</h4>
-          <div className={styles.card}>
-            <h6>title</h6>
-            <p>text</p>
-            <div className={styles.tags}>tags</div>
-          </div>
-          <div className={styles.card}>
-            <h6>title</h6>
-            <p>text</p>
-            <div className={styles.tags}>tags</div>
-          </div>
-          <div className={styles.card}>
-            <h6>title</h6>
-            <p>text</p>
-            <div className={styles.tags}>tags</div>
-          </div>
-        </div>
-        <div className={styles.finish}>
-          <h4>Feito</h4>
-          <div className={styles.card}>
-            <h6>title</h6>
-            <p>text</p>
-            <div className={styles.tags}>tags</div>
-          </div>
-          <div className={styles.card}>
-            <h6>title</h6>
-            <p>text</p>
-            <div className={styles.tags}>tags</div>
-          </div>
-          <div className={styles.card}>
-            <h6>title</h6>
-            <p>text</p>
-            <div className={styles.tags}>tags</div>
-          </div>
-        </div>
         </div>
       </div>
     </div>
+    </>
   );
 }
