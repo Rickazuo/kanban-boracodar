@@ -19,6 +19,7 @@ function Task({ index, task, onDropHover: handleDropHover }) {
                 position="relative"
                 rounded="lg"
                 w={200}
+                h={200}
                 pl={3}
                 pr={7}
                 pt={3}

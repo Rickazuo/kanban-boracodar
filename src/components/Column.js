@@ -1,15 +1,22 @@
+import { useState } from "react";
 import { AddIcon } from "@chakra-ui/icons";
 import { Badge, Box, Heading, IconButton, Stack } from "@chakra-ui/react";
 import useColumnDrop from "@/../hooks/useColumnDrop";
 import useColumnTasks from "@/../hooks/useColumnTasks";
 import Task from "./Task";
+import { ColumnType } from "../../utils/columnType";
 
-function Column({ column }) {
-    const { tasks, addEmptyTask, dropTaskFrom, swapTasks } =
-        useColumnTasks(column);
+function Column({ column, tasks, setTasks }) {
+    const { addEmptyTask, dropTaskFrom, swapTasks } = useColumnTasks(
+        column,
+        tasks,
+        setTasks
+    );
+
+    console.log(tasks);
 
     const { dropRef, isOver } = useColumnDrop(column, dropTaskFrom);
-    const ColumnTasks = tasks?.map((task, index) => (
+    const ColumnTasks = tasks[column]?.map((task, index) => (
         <Task key={task.id} task={task} index={index} onDropHover={swapTasks} />
     ));
 

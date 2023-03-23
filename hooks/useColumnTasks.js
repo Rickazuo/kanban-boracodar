@@ -1,46 +1,10 @@
 import { useCallback, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { pickChakraRandomColor, swap } from "../utils/helpers";
-import { ColumnType } from "../utils/columnType";
 const MAX_TASK_PER_COLUMN = 100;
 
-function useColumnTasks(column) {
-    const [tasks, setTasks] = useState({
-        Todo: [
-            {
-                id: 1,
-                column: ColumnType.TO_DO,
-                title: "Task 1",
-                color: "blue.300",
-            },
-        ],
-        "In Progress": [
-            {
-                id: 2,
-                column: ColumnType.IN_PROGRESS,
-                title: "Task 2",
-                color: "yellow.300",
-            },
-        ],
-        Blocked: [
-            {
-                id: 3,
-                column: ColumnType.BLOCKED,
-                title: "Task 3",
-                color: "red.300",
-            },
-        ],
-        Completed: [
-            {
-                id: 4,
-                column: ColumnType.COMPLETED,
-                title: "Task 4",
-                color: "green.300",
-            },
-        ],
-    });
-    const columnTasks = tasks[column];
-
+function useColumnTasks(column, tasks, setTasks) {
+    const [minId, setMinId] = useState(5);
     const addEmptyTask = useCallback(() => {
         console.log(`Adding new empty task to ${column} column`);
         setTasks((allTasks) => {
@@ -52,11 +16,13 @@ function useColumnTasks(column) {
             }
 
             const newColumnTask = {
-                id: uuidv4(),
+                id: minId,
                 title: `New ${column} task`,
-                color: pickChakraRandomColor(".300"),
+                color: "blue.300",
                 column,
             };
+
+            setMinId((id) => id + 1);
 
             return {
                 ...allTasks,
@@ -86,7 +52,7 @@ function useColumnTasks(column) {
                     [from]: fromColumnTasks.filter((task) => task.id !== id),
                     [column]: [{ ...movingTask, column }, ...toColumnTasks],
                 };
-                //setTasks(newTasks);
+
                 // remove the task from the original column and copy it within the destination column
                 return newTasks;
             });
@@ -109,7 +75,6 @@ function useColumnTasks(column) {
     );
 
     return {
-        tasks: columnTasks,
         addEmptyTask,
         dropTaskFrom,
         swapTasks,
