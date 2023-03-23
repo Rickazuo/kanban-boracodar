@@ -2,7 +2,6 @@ import styles from "../styles/Layout.module.css";
 import Head from "next/head";
 import Image from "next/image";
 import { Inter, Poppins } from "next/font/google";
-
 import logo from "../../public/logo.svg";
 import boardIcon from "../../public/boardIcon.svg";
 import teamIcon from "../../public/teamIcon.svg";

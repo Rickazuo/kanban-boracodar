@@ -82,7 +82,7 @@ export default function Home() {
                             <p>text</p>
                             <div className={styles.tags}>tags</div>
                         </div>
-                        <Kanban></Kanban>
+                        <Kanban />
                     </div>
                 </div>
             </div>
