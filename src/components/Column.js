@@ -1,10 +1,8 @@
-import { useState } from "react";
 import { AddIcon } from "@chakra-ui/icons";
 import { Badge, Box, Heading, IconButton, Stack } from "@chakra-ui/react";
 import useColumnDrop from "@/../hooks/useColumnDrop";
 import useColumnTasks from "@/../hooks/useColumnTasks";
 import Task from "./Task";
-import { ColumnType } from "../../utils/columnType";
 
 function Column({ column, tasks, setTasks }) {
     const { addEmptyTask, dropTaskFrom, swapTasks } = useColumnTasks(
@@ -19,18 +17,18 @@ function Column({ column, tasks, setTasks }) {
     ));
 
     return (
-        <Box>
-            <Heading fontSize="md" mb={4} letterSpacing="wide">
-                <Badge px={2} py={1} rounded="lg">
-                    {column}
-                </Badge>
-            </Heading>
+        <Box
+            sx={{
+                boxShadow: isOver
+                    ? "0 4px 6px -1px rgba(0, 0, 0, 0.1),0 2px 4px -1px rgba(0, 0, 0, 0.06)"
+                    : "none",
+            }}
+            minWidth={330}
+        >
+            <h4>{column}</h4>
             <IconButton
                 size="xs"
                 w="full"
-                //color={useColorModeValue("gray.500", "gray.400")}
-                //bgColor={useColorModeValue("gray.100", "gray.700")}
-                //_hover={{ bgColor: useColorModeValue("gray.200", "gray.600") }}
                 bgColor="purple"
                 py={2}
                 variant="solid"
@@ -46,7 +44,6 @@ function Column({ column, tasks, setTasks }) {
                 p={4}
                 mt={2}
                 spacing={4}
-                //bgColor={useColorModeValue("gray.50", "gray.900")}
                 rounded="lg"
                 boxShadow="md"
                 overflow="auto"

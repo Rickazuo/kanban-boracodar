@@ -1,8 +1,8 @@
-import { DeleteIcon } from "@chakra-ui/icons";
-import { Box, IconButton, ScaleFade } from "@chakra-ui/react";
+import { Box, ScaleFade } from "@chakra-ui/react";
 //import _ from "lodash";
 import { memo } from "react";
 import { useTaskDragAndDrop } from "@/../hooks/useTaskDragAndDrop";
+import styles from "../styles/Task.module.css";
 
 function Task({ index, task, onDropHover: handleDropHover }) {
     const { ref, isDragging } = useTaskDragAndDrop(
@@ -18,19 +18,28 @@ function Task({ index, task, onDropHover: handleDropHover }) {
                 role="group"
                 position="relative"
                 rounded="lg"
-                w={200}
-                h={200}
-                pl={3}
-                pr={7}
-                pt={3}
-                pb={1}
+                w={320}
+                pl={8}
+                pr={8}
+                pt={8}
+                pb={8}
                 boxShadow="xl"
                 cursor="grab"
                 fontWeight="bold"
                 userSelect="none"
                 bgColor={task.color}
                 opacity={isDragging ? 0.5 : 1}
-            ></Box>
+            >
+                <div className={styles.containerBox}>
+                    <h5 className={styles.title}>{task.title}</h5>
+                    <p className={styles.description}>{task.description}</p>
+                    <div className={styles.tags}>
+                        {task.tags.map((tag) => (
+                            <span>{tag}</span>
+                        ))}
+                    </div>
+                </div>
+            </Box>
         </ScaleFade>
     );
 }

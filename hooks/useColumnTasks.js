@@ -18,7 +18,8 @@ function useColumnTasks(column, tasks, setTasks) {
             const newColumnTask = {
                 id: minId,
                 title: `New ${column} task`,
-                color: "blue.300",
+                description: "dhsudihdusaudsa",
+                tags: ["rocketseat", "desafio"],
                 column,
             };
 

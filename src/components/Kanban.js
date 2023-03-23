@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Container, SimpleGrid } from "@chakra-ui/react";
+import styles from "../styles/Kanban.module.css";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import Column from "./Column";
@@ -11,24 +11,30 @@ const Kanban = () => {
             {
                 id: 1,
                 column: ColumnType.TO_DO,
-                title: "Task 1",
-                color: "blue.300",
+                description:
+                    "Novo desafio do #boraCodar da Rocketseat, onde é proposto construir um quadro de Kanban.",
+                tags: ["rocketseat", "desafio"],
+                title: "#boraCodar um Kanban 🧑‍💻",
             },
         ],
         Fazendo: [
             {
                 id: 2,
                 column: ColumnType.IN_PROGRESS,
-                title: "Task 2",
-                color: "yellow.300",
+                description:
+                    "Conferir o novo projeto do #boraCodar para fazê-lo da melhor maneira possível",
+                tags: ["rocketseat", "desafio"],
+                title: "Conferir o novo desafio 🚀 ",
             },
         ],
         Feito: [
             {
-                id: 4,
+                id: 3,
                 column: ColumnType.COMPLETED,
-                title: "Task 4",
-                color: "green.300",
+                description:
+                    "Novo desafio do #boraCodar da Rocketseat, onde é proposto construir um quadro de Kanban.",
+                tags: ["rocketseat", "desafio"],
+                title: "#boraCodar uma página de login 🧑‍💻",
             },
         ],
     });
@@ -36,28 +42,23 @@ const Kanban = () => {
     return (
         <main>
             <DndProvider backend={HTML5Backend}>
-                <Container maxWidth="container.lg" px={4} py={10}>
-                    <SimpleGrid
-                        columns={{ base: 1, md: 4 }}
-                        spacing={{ base: 16, md: 4 }}
-                    >
-                        <Column
-                            tasks={tasks}
-                            setTasks={setTasks}
-                            column={ColumnType.TO_DO}
-                        />
-                        <Column
-                            tasks={tasks}
-                            setTasks={setTasks}
-                            column={ColumnType.IN_PROGRESS}
-                        />
-                        <Column
-                            tasks={tasks}
-                            setTasks={setTasks}
-                            column={ColumnType.COMPLETED}
-                        />
-                    </SimpleGrid>
-                </Container>
+                <div className={styles.container}>
+                    <Column
+                        tasks={tasks}
+                        setTasks={setTasks}
+                        column={ColumnType.TO_DO}
+                    />
+                    <Column
+                        tasks={tasks}
+                        setTasks={setTasks}
+                        column={ColumnType.IN_PROGRESS}
+                    />
+                    <Column
+                        tasks={tasks}
+                        setTasks={setTasks}
+                        column={ColumnType.COMPLETED}
+                    />
+                </div>
             </DndProvider>
         </main>
     );

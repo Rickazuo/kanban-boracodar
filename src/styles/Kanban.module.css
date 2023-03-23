@@ -1,0 +1,14 @@
+.container {
+    display: flex;
+    gap: 12;
+    overflow-x: auto;
+    max-width: 80vw;
+    padding: 1rem;
+}
+
+.container h4 {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 130%;
+    color: var(--brown-200);
+}
