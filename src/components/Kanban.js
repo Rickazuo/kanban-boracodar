@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Container, Heading, SimpleGrid } from "@chakra-ui/react";
+import { Container, SimpleGrid } from "@chakra-ui/react";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import Column from "./Column";
@@ -7,7 +7,7 @@ import { ColumnType } from "../../utils/columnType";
 
 const Kanban = () => {
     const [tasks, setTasks] = useState({
-        Todo: [
+        "A fazer": [
             {
                 id: 1,
                 column: ColumnType.TO_DO,
@@ -15,7 +15,7 @@ const Kanban = () => {
                 color: "blue.300",
             },
         ],
-        "In Progress": [
+        Fazendo: [
             {
                 id: 2,
                 column: ColumnType.IN_PROGRESS,
@@ -23,15 +23,7 @@ const Kanban = () => {
                 color: "yellow.300",
             },
         ],
-        Blocked: [
-            {
-                id: 3,
-                column: ColumnType.BLOCKED,
-                title: "Task 3",
-                color: "red.300",
-            },
-        ],
-        Completed: [
+        Feito: [
             {
                 id: 4,
                 column: ColumnType.COMPLETED,
@@ -43,15 +35,6 @@ const Kanban = () => {
 
     return (
         <main>
-            <Heading
-                fontSize={{ base: "4xl", sm: "5xl", md: "6xl" }}
-                fontWeight="bold"
-                textAlign="center"
-                bgClip="text"
-                mt={4}
-            >
-                Welcome to DnD Kanban
-            </Heading>
             <DndProvider backend={HTML5Backend}>
                 <Container maxWidth="container.lg" px={4} py={10}>
                     <SimpleGrid
@@ -67,11 +50,6 @@ const Kanban = () => {
                             tasks={tasks}
                             setTasks={setTasks}
                             column={ColumnType.IN_PROGRESS}
-                        />
-                        <Column
-                            tasks={tasks}
-                            setTasks={setTasks}
-                            column={ColumnType.BLOCKED}
                         />
                         <Column
                             tasks={tasks}

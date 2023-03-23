@@ -29,59 +29,6 @@ export default function Home() {
                 </div>
                 <div className={styles.cards}>
                     <div className={styles.toDo}>
-                        <h4>A fazer</h4>
-                        <div className={styles.card}>
-                            <h6>title</h6>
-                            <p>text</p>
-                            <div className={styles.tags}>tags</div>
-                        </div>
-                        <div className={styles.card}>
-                            <h6>title</h6>
-                            <p>text</p>
-                            <div className={styles.tags}>tags</div>
-                        </div>
-                        <div className={styles.card}>
-                            <h6>title</h6>
-                            <p>text</p>
-                            <div className={styles.tags}>tags</div>
-                        </div>
-                    </div>
-                    <div></div>
-                    <div className={styles.doing}>
-                        <h4>Fazendo</h4>
-                        <div className={styles.card}>
-                            <h6>title</h6>
-                            <p>text</p>
-                            <div className={styles.tags}>tags</div>
-                        </div>
-                        <div className={styles.card}>
-                            <h6>title</h6>
-                            <p>text</p>
-                            <div className={styles.tags}>tags</div>
-                        </div>
-                        <div className={styles.card}>
-                            <h6>title</h6>
-                            <p>text</p>
-                            <div className={styles.tags}>tags</div>
-                        </div>
-                    </div>
-                    <div className={styles.finish}>
-                        <h4>Feito</h4>
-                        <div className={styles.card}>
-                            <h6>title</h6>
-                            <p>text</p>
-                            <div className={styles.tags}>tags</div>
-                        </div>
-                        <div className={styles.card}>
-                            <h6>title</h6>
-                            <p>text</p>
-                            <div className={styles.tags}>tags</div>
-                        </div>
-                        <div className={styles.card}>
-                            <h6>title</h6>
-                            <p>text</p>
-                            <div className={styles.tags}>tags</div>
-                        </div>
                         <Kanban />
                     </div>
                 </div>

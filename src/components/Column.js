@@ -13,8 +13,6 @@ function Column({ column, tasks, setTasks }) {
         setTasks
     );
 
-    console.log(tasks);
-
     const { dropRef, isOver } = useColumnDrop(column, dropTaskFrom);
     const ColumnTasks = tasks[column]?.map((task, index) => (
         <Task key={task.id} task={task} index={index} onDropHover={swapTasks} />
@@ -33,6 +31,7 @@ function Column({ column, tasks, setTasks }) {
                 //color={useColorModeValue("gray.500", "gray.400")}
                 //bgColor={useColorModeValue("gray.100", "gray.700")}
                 //_hover={{ bgColor: useColorModeValue("gray.200", "gray.600") }}
+                bgColor="purple"
                 py={2}
                 variant="solid"
                 onClick={addEmptyTask}
