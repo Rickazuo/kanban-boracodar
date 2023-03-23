@@ -3,34 +3,39 @@ import { v4 as uuidv4 } from "uuid";
 import { pickChakraRandomColor, swap } from "../utils/helpers";
 const MAX_TASK_PER_COLUMN = 100;
 
-function useColumnTasks(column, tasks, setTasks) {
+function useColumnTasks(column, setTasks) {
     const [minId, setMinId] = useState(5);
-    const addEmptyTask = useCallback(() => {
-        console.log(`Adding new empty task to ${column} column`);
-        setTasks((allTasks) => {
-            const columnTasks = allTasks[column];
+    const addEmptyTask = useCallback(
+        (e, form) => {
+            e.preventDefault();
+            console.log(`Adding new empty task to ${column} column`);
+            setTasks((allTasks) => {
+                debugger;
+                const columnTasks = allTasks[column];
 
-            if (columnTasks.length > MAX_TASK_PER_COLUMN) {
-                console.log("Too many task!");
-                return allTasks;
-            }
+                if (columnTasks.length > MAX_TASK_PER_COLUMN) {
+                    console.log("Too many task!");
+                    return allTasks;
+                }
 
-            const newColumnTask = {
-                id: minId,
-                title: `New ${column} task`,
-                description: "dhsudihdusaudsa",
-                tags: ["rocketseat", "desafio"],
-                column,
-            };
+                const newColumnTask = {
+                    id: minId,
+                    title: form.title,
+                    description: form.description,
+                    tags: form.tags,
+                    column,
+                };
 
-            setMinId((id) => id + 1);
+                setMinId((id) => id + 1);
 
-            return {
-                ...allTasks,
-                [column]: [newColumnTask, ...columnTasks],
-            };
-        });
-    }, [column, setTasks]);
+                return {
+                    ...allTasks,
+                    [column]: [newColumnTask, ...columnTasks],
+                };
+            });
+        },
+        [column, setTasks]
+    );
 
     const dropTaskFrom = useCallback(
         (from, id) => {

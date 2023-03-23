@@ -22,3 +22,7 @@
 body {
     background: var(--purple) !important;
 }
+
+input {
+    border: 1px solid var(--gray-300);
+}
