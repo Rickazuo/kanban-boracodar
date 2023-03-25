@@ -4,7 +4,6 @@ import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import Column from "./Column";
 import { ColumnType } from "../../utils/columnType";
-
 const Kanban = () => {
     const [tasks, setTasks] = useState({
         "A fazer": [

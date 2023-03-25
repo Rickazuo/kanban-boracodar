@@ -1,0 +1,34 @@
+.kanbanColumn {
+  box-shadow: none !important;
+}
+
+.tag {
+  padding: 4px 8px;
+  background: var(--pink-200);
+  border-radius: 8px;
+  color: var(--purple);
+  max-width: 10rem;
+}
+
+.addButton {
+  border-radius: .525rem;
+  background-color: var(--gray-100);
+}
+
+.submitButton {
+  padding: 0.5rem 0;
+  background-color: var(--purple);
+  text-align: center;
+  color: var(--white);
+  font-weight: bold;
+  text-transform: uppercase;
+  width: 12.5rem;
+  border-radius: .525rem;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 2rem;
+}
