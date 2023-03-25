@@ -53,8 +53,8 @@ function Column({ column, tasks, setTasks }) {
   };
 
   const addNewTag = () => {
-    if(!newTaskForm.tagName || newTaskForm.tags.length >= 4) {
-      alert("Ao adicionar uma tag adicione um nome e o limite de tags é 4")
+    if(!newTaskForm.tagName || newTaskForm.tags.length >= 3) {
+      alert("Ao adicionar uma tag adicione um nome e o limite de tags é 3")
       return
     }
     setNewTaskForm((fields) => ({

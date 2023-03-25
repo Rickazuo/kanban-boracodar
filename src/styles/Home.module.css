@@ -28,6 +28,7 @@
     flex-direction: row;
     padding: 0rem 1.625rem;
     gap: 1rem;
+    width: 100%;
 }
 
 .buttonSearch {
