@@ -10,7 +10,6 @@ function useColumnTasks(column, setTasks) {
             e.preventDefault();
             console.log(`Adding new empty task to ${column} column`);
             setTasks((allTasks) => {
-                debugger;
                 const columnTasks = allTasks[column];
 
                 if (columnTasks.length > MAX_TASK_PER_COLUMN) {

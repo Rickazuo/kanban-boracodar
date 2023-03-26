@@ -23,6 +23,18 @@
     color: var(--brown-200);
 }
 
+.tag {
+    padding: 4px 8px;
+    background: var(--pink-200);
+    border-radius: 8px;
+    color: var(--purple);
+  }
+
+  .tagChoose {
+    background: var(--purple);
+    color: var(--white-100);
+  } 
+
 .search {
     display: flex;
     flex-direction: row;

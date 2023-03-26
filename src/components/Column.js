@@ -28,16 +28,17 @@ const OverlayOne = () => (
   />
 );
 
-function Column({ column, tasks, setTasks }) {
+function Column({ column, tasks, setTasks, actualTasks, setActualTasks}) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [overlay, setOverlay] = useState(<OverlayOne />);
   const { addEmptyTask, dropTaskFrom, swapTasks } = useColumnTasks(
     column,
-    setTasks
+    setTasks,
   );
 
   const { dropRef, isOver } = useColumnDrop(column, dropTaskFrom);
-  const ColumnTasks = tasks[column]?.map((task, index) => (
+  
+  const ColumnTasks = actualTasks[column]?.map((task, index) => (
     <Task key={task.id} task={task} index={index} onDropHover={swapTasks} />
   ));
 
@@ -64,7 +65,6 @@ function Column({ column, tasks, setTasks }) {
     }));
   };
 
-  console.log(isOver);
   return (
     <Box
       className={styles.kanbanColumn}
