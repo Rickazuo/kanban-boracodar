@@ -28,6 +28,7 @@ const Layout = ({ children }) => (
             </Head>
             <div className={styles.aside}>
                 <Image
+                    alt="logo"
                     className={styles.logo}
                     src={logo}
                     width={50}

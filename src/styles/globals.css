@@ -26,3 +26,7 @@ body {
 input {
     border: 1px solid var(--gray-300);
 }
+
+div {
+    /* box-shadow: none !important; */
+}

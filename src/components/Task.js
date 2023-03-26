@@ -23,6 +23,7 @@ function Task({ index, task, onDropHover: handleDropHover }) {
                 pr={8}
                 pt={8}
                 pb={8}
+                background="white"
                 boxShadow="xl"
                 cursor="grab"
                 fontWeight="bold"
@@ -35,7 +36,7 @@ function Task({ index, task, onDropHover: handleDropHover }) {
                     <p className={styles.description}>{task.description}</p>
                     <div className={styles.tags}>
                         {task.tags.map((tag) => (
-                            <span>{tag}</span>
+                            <span key={tag}>{tag}</span>
                         ))}
                     </div>
                 </div>
