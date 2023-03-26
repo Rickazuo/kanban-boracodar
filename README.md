@@ -1,4 +1,4 @@
-<h1 align="center"> #11 Login Page </h1>
+<h1 align="center"> #12 Kanban </h1>
 
 <p align="center">
 Um Kanban é o #12 desafio <a href="https://boracodar.dev/">#BORACODAR</a> da RocketSeat<br/>
