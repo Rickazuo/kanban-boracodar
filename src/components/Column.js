@@ -19,7 +19,7 @@ import {
   Box,
   IconButton,
   Stack,
-  Flex
+  Flex,
 } from "@chakra-ui/react";
 const OverlayOne = () => (
   <ModalOverlay
@@ -28,16 +28,16 @@ const OverlayOne = () => (
   />
 );
 
-function Column({ column, tasks, setTasks, actualTasks, setActualTasks}) {
+function Column({ column, tasks, setTasks, actualTasks, setActualTasks }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [overlay, setOverlay] = useState(<OverlayOne />);
   const { addEmptyTask, dropTaskFrom, swapTasks } = useColumnTasks(
     column,
-    setTasks,
+    setTasks
   );
 
   const { dropRef, isOver } = useColumnDrop(column, dropTaskFrom);
-  
+
   const ColumnTasks = actualTasks[column]?.map((task, index) => (
     <Task key={task.id} task={task} index={index} onDropHover={swapTasks} />
   ));
@@ -54,9 +54,9 @@ function Column({ column, tasks, setTasks, actualTasks, setActualTasks}) {
   };
 
   const addNewTag = () => {
-    if(!newTaskForm.tagName || newTaskForm.tags.length >= 3) {
-      alert("Ao adicionar uma tag adicione um nome e o limite de tags é 3")
-      return
+    if (!newTaskForm.tagName || newTaskForm.tags.length >= 3) {
+      alert("Ao adicionar uma tag adicione um nome e o limite de tags é 3");
+      return;
     }
     setNewTaskForm((fields) => ({
       ...fields,
@@ -68,40 +68,39 @@ function Column({ column, tasks, setTasks, actualTasks, setActualTasks}) {
   return (
     <Box
       className={styles.kanbanColumn}
-      _hover={{
-        boxShadow:
-          "0 4px 6px -1px rgba(0, 0, 0, 0.1),0 2px 4px -1px rgba(0, 0, 0, 0.06) !important",
-      }}
       minWidth={330}
     >
       <Flex>
-      <h4>{column}</h4>
-      <IconButton
-        size="xs"
-        bgColor="#e2d6ff"
-        color="#7c3aed"
-        boxShadow='md'
-        mx={2}
-        py={2}
-        variant="solid"
-        onClick={() => {
-          setOverlay(<OverlayOne />);
-          onOpen();
-        }}
-        colorScheme="black"
-        aria-label="add-task"
-        icon={<AddIcon />}
-      />
+        <h4>{column}</h4>
+        <IconButton
+          size="xs"
+          bgColor="#e2d6ff"
+          color="#7c3aed"
+          boxShadow="md"
+          mx={2}
+          py={2}
+          variant="solid"
+          onClick={() => {
+            setOverlay(<OverlayOne />);
+            onOpen();
+          }}
+          colorScheme="black"
+          aria-label="add-task"
+          icon={<AddIcon />}
+        />
       </Flex>
       <Stack
         ref={dropRef}
+        _hover={{
+          boxShadow:
+            "0 4px 6px -1px rgba(0, 0, 0, 0.1),0 2px 4px -1px rgba(0, 0, 0, 0.06) !important",
+        }}
         direction={{ base: "row", md: "column" }}
         h={{ base: 400 }}
         p={4}
         mt={2}
         spacing={4}
         rounded="lg"
-        boxShadow="md"
         overflow="auto"
         opacity={isOver ? 0.85 : 1}
       >
@@ -135,19 +134,25 @@ function Column({ column, tasks, setTasks, actualTasks, setActualTasks}) {
                 />
                 <Text mb="8px">Adicione tags</Text>
                 <Flex gap={3}>
-                    <Input
+                  <Input
                     id="modal-tagName"
                     width="50%"
                     onChange={(e) => onChange(e, "tagName")}
                     value={newTaskForm.tagName}
-                    />
-                    <button type="button" onClick={addNewTag}>Add</button>
+                  />
+                  <button type="button" onClick={addNewTag}>
+                    Add
+                  </button>
                 </Flex>
                 {newTaskForm.tags.map((tag) => (
-                  <span className={styles.tag} key={tag}>{tag}</span>
+                  <span className={styles.tag} key={tag}>
+                    {tag}
+                  </span>
                 ))}
                 <div className={styles.buttonContainer}>
-                  <button className={styles.submitButton} type="submit">Submit</button>
+                  <button className={styles.submitButton} type="submit">
+                    Submit
+                  </button>
                 </div>
               </Stack>
             </form>

@@ -35,7 +35,15 @@
     color: var(--pink-200);
 }
 
+.nav:nth-child(1) {
+    color: var(--white);
+}
+
 .nav:hover {
     color: var(--white);
     cursor: pointer;
+}
+
+.nav:hover .navIcon {
+    filter: brightness(0) invert(1);
 }

@@ -3,6 +3,7 @@ import Image from "next/image";
 import { useState, useEffect, useCallback } from "react";
 import penIcon from "../../public/penIcon.svg";
 import buttonSearch from "../../public/buttonSearch.svg";
+import profile from "../../public/profile.png";
 import { ColumnType } from "../../utils/columnType";
 import Kanban from "@/components/Kanban";
 import Layout from "@/layouts/Layout";
@@ -51,7 +52,7 @@ const beginTasks = {
   ],
 };
 export default function Home() {
-  const [tasks, setTasks] = useState({...beginTasks});
+  const [tasks, setTasks] = useState({ ...beginTasks });
   const [actualTasks, setActualTasks] = useState({});
 
   const [existingTags, setExistingTags] = useState([]);
@@ -76,22 +77,16 @@ export default function Home() {
   const filterTasks = useCallback(() => {
     let match = false;
     const filteredTasks = {
-        "A fazer": [
-        ],
-        Fazendo: [
-        ],
-        Feito: [
-        ],
-      };
+      "A fazer": [],
+      Fazendo: [],
+      Feito: [],
+    };
 
     for (const task in tasks) {
       for (let i = 0; i < tasks[task].length; i++) {
-        
         if (
           search &&
-          tasks[task][i].title
-            .toLowerCase()
-            .includes(search.toLowerCase())
+          tasks[task][i].title.toLowerCase().includes(search.toLowerCase())
         )
           match = true;
 
@@ -111,14 +106,13 @@ export default function Home() {
             match = true;
         }
 
-        if (!search && !filterTag.tag) match = true
-        if (match) filteredTasks[task].push(tasks[task][i])
+        if (!search && !filterTag.tag) match = true;
+        if (match) filteredTasks[task].push(tasks[task][i]);
         match = false;
       }
     }
 
     setActualTasks(filteredTasks);
-
   }, [tasks, filterTag, search]);
 
   useEffect(() => {
@@ -126,14 +120,16 @@ export default function Home() {
     filterTasks();
   }, [tasks, getTagsOptions, filterTasks, search, filterTag]);
 
-  console.log("tasks", tasks)
-  console.log(actualTasks)
   return (
     <Layout>
       <div className={styles.main}>
         <div className={styles.headMain}>
-          <h1>Meu Kanban</h1>
-          <Image src={penIcon} width={40} height={40} alt="pen icon" />
+          <Flex gap={3}>
+            <h1>Meu Kanban</h1>
+            <Image src={penIcon} width={40} height={40} alt="pen icon" />
+          </Flex>
+          
+          <span><Image alt="profile" src={profile} /></span>
         </div>
         <div className={styles.search}>
           <button
