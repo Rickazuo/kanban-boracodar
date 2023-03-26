@@ -3,6 +3,12 @@
     height: 0.3125rem;
 }
 
+.nameFooter {
+    color: var(--white);
+    font-weight: bold;
+    padding: 0 .5rem;
+  }
+
 .container {
     display: flex;
     height: 100vh;
@@ -36,6 +42,11 @@
     color: var(--pink-200);
 }
 
+.credits {
+       color: var(--pink-200);
+       margin-top: 100%;
+}
+
 .nav:nth-child(1) {
     color: var(--white);
 }
@@ -50,6 +61,10 @@
 }
 
 @media screen and (max-width: 1000px){
+    .credits {
+        display: none;
+    }
+    
     .container{
         flex-direction: column;
     }

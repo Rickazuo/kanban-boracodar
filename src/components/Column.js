@@ -123,12 +123,14 @@ function Column({ column, tasks, setTasks, actualTasks, setActualTasks }) {
                 <Text mb="8px">Título</Text>
                 <Input
                   id="modal-title"
+                  focusBorderColor='purple.200'
                   onChange={(e) => onChange(e, "title")}
                   value={newTaskForm.title}
                 />
                 <Text mb="8px">Descrição</Text>
                 <Input
                   id="modal-description"
+                  focusBorderColor='purple.200'
                   onChange={(e) => onChange(e, "description")}
                   value={newTaskForm.description}
                 />
@@ -136,6 +138,7 @@ function Column({ column, tasks, setTasks, actualTasks, setActualTasks }) {
                 <Flex gap={3}>
                   <Input
                     id="modal-tagName"
+                    focusBorderColor='purple.200'
                     width="50%"
                     onChange={(e) => onChange(e, "tagName")}
                     value={newTaskForm.tagName}

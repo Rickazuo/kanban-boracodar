@@ -19,7 +19,7 @@ const beginTasks = {
       description:
         "Novo desafio do #boraCodar da Rocketseat, onde é proposto construir um quadro de Kanban.",
       tags: ["rocketseat", "desafio"],
-      title: "#boraCodar um Kanban 🧑‍💻",
+      title: "#boraCodar um Kanban 👩‍💻",
     },
     {
       id: 2,
@@ -147,6 +147,7 @@ export default function Home() {
             />
             <Input
               id="search"
+              focusBorderColor='purple.200'
               onChange={(e) => setSearch(e.target.value)}
               boxShadow="sm"
               w="full"
