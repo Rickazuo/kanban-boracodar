@@ -2,7 +2,6 @@
     display: flex;
     gap: 12;
     overflow-x: auto;
-    max-width: 80vw;
     padding: 1rem;
 }
 
@@ -12,3 +11,5 @@
     line-height: 130%;
     color: var(--brown-200);
 }
+
+/* @media screen and (max-width) */

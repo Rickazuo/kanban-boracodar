@@ -38,6 +38,7 @@ const Layout = ({ children }) => (
                     <div className={styles.nav}>
                         <Image
                             src={boardIcon}
+                            className={styles.navIcon}
                             alt="smartphone icon"
                             width={20}
                             height={20}
@@ -47,6 +48,7 @@ const Layout = ({ children }) => (
                     <div className={styles.nav}>
                         <Image
                             src={teamIcon}
+                            className={styles.navIcon}
                             alt="team icon"
                             width={20}
                             height={20}
@@ -56,6 +58,7 @@ const Layout = ({ children }) => (
                     <div className={styles.nav}>
                         <Image
                             src={reportIcon}
+                            className={styles.navIcon}
                             alt="paper icon"
                             width={20}
                             height={20}
@@ -65,6 +68,7 @@ const Layout = ({ children }) => (
                     <div className={styles.nav}>
                         <Image
                             src={adjustIcon}
+                            className={styles.navIcon}
                             alt="gear icon"
                             width={20}
                             height={20}

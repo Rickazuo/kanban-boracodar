@@ -3,6 +3,7 @@
     margin: 0;
     box-sizing: border-box;
     font-style: normal;
+    scrollbar-width: 10px !important;
 }
 
 :root {
@@ -19,14 +20,27 @@
     --brown-200: #403937;
 }
 
+::-webkit-scrollbar {
+    width: 10px !important;
+    height: 10px !important;
+  }
+  
+  ::-webkit-scrollbar-track {
+    box-shadow: 0px 4px 16px #EAE2FD;; 
+    border-radius: 10px;
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #cab3ff; 
+    border-radius: 10px;
+  }
+  
+
 body {
     background: var(--purple) !important;
 }
 
 input {
     border: 1px solid var(--gray-300);
-}
-
-div {
-    /* box-shadow: none !important; */
 }

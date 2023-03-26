@@ -17,6 +17,7 @@ function Task({ index, task, onDropHover: handleDropHover }) {
                 as="div"
                 role="group"
                 position="relative"
+                sx={{boxShadow: "0px 4px 16px #EAE2FD"}}
                 rounded="lg"
                 w={320}
                 pl={8}
@@ -24,7 +25,6 @@ function Task({ index, task, onDropHover: handleDropHover }) {
                 pt={8}
                 pb={8}
                 background="white"
-                boxShadow="xl"
                 cursor="grab"
                 fontWeight="bold"
                 userSelect="none"
